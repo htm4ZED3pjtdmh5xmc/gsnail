@@ -4,14 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>gnasil.biz -- mail, reimagined, again</title>
-
   <!-- 1. The library's stylesheet. Without this, every component renders unstyled. -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/performative-ui@0.6.0/dist/performative-ui.css" />
-
-  <!-- 2. Import map: pins ONE React 19 instance. The library imports bare "react",
-          and ?external=react,react-dom makes it resolve through this map to the
-          same instance we render with. This is what prevents "invalid hook call". -->
+  <!-- 2. Import map: pins ONE React 19 instance. -->
   <script type="importmap">
   {
     "imports": {
@@ -25,18 +21,23 @@
     }
   }
   </script>
-
   <style>
     body { margin: 0; font-family: system-ui, sans-serif; background: #0a0a0f; color: #e8e8f0; }
     main { max-width: 760px; margin: 0 auto; padding: 18vh 24px 24px; text-align: center; }
     .stats { display: flex; gap: 40px; justify-content: center; margin: 48px 0; }
     .stats > div { font-size: 28px; font-weight: 700; }
     .stats small { display: block; font-size: 12px; font-weight: 400; opacity: 0.6; margin-top: 4px; }
+    /* Added: lets the "G" sit centered on top of the snail image. */
+    .container { position: relative; display: inline-block; }
+    .centered {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 48px; font-weight: 800;
+    }
   </style>
 </head>
 <body>
   <div id="root"></div>
-
   <!-- 3. The app. htm gives you JSX-like syntax with no compiler. -->
   <script type="module">
     import { createElement } from "react";
@@ -45,47 +46,37 @@
     import {
       Aurora, GradientText, StickyBanner, StatCounter, WaitlistForm
     } from "performative-ui";
-
     const html = htm.bind(createElement);   // now write <${Component}>…<//>
-
     function App() {
       return html`
         <${Aurora} style=${{ position: "fixed", inset: 0, zIndex: -1 }} />
-
         <${StickyBanner}>
           <${GradientText}>gsnail Samson 8 is currently unavailable.<//>
         <//>
-
         <main>
-          		<br><br><br><br>
-              <div class="container">
-              <img src="art.png" alt="Snail" style="width:25%;">
-              <div class="centered">
-              G
-              </div>
-              </div> 
-    
+          <br /><br /><br /><br />
+          <div class="container">
+            <img src="art.png" alt="Snail" style=${{ width: "25%" }} />
+            <div class="centered">G</div>
+          </div>
+
           <h1 style=${{ fontSize: "52px", lineHeight: 1.1 }}>
             bizness mail. for the sn<${GradientText}>ai<//>l era.
-          </h1>        
-
+          </h1>
           <p style=${{ opacity: 0.7, fontSize: "18px", margin: "20px 0 40px" }}>
             The least revenue-negative AI company in history. Now powering your mail.
           </p>
-
           <div class="stats">
             <div><${StatCounter} target=${1284000} durationMs=${2000} /><small>vibes processed</small></div>
             <div>$<${StatCounter} target=${515} durationMs=${2000} />M<small>seed round (pre-product)</small></div>
             <div><${StatCounter} target=${99.9} durationMs=${2000} />%<small>uptime (aspirational)</small></div>
           </div>
-
           <${WaitlistForm} placeholder="you@gsnail.biz"
                            ctaLabel="Request early access"
                            footnote="We will email you exactly once, dramatically." />
         </main>
       `;
     }
-
     createRoot(document.getElementById("root")).render(html`<${App} />`);
   </script>
 </body>
