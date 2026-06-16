@@ -50,7 +50,8 @@
     function App() {
       return html`
 
-        <${NodeGraphBackground} style=${{ position: "relative"}} />
+        <${NodeGraphBackground} style=${{ position: "fixed", inset: 0, zIndex: -1 }}} />
+
         
         <${StickyBanner}>
           <${GradientText}>gsnail Plothole 6 is currently unavailable.<//>
