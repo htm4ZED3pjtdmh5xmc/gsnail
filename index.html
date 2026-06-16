@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gsnail —- email, reimagined, again</title>
+  <title>Synergon — AI-native synergy, reimagined</title>
 
   <!-- 1. The library's stylesheet. Without this, every component renders unstyled. -->
   <link rel="stylesheet"
@@ -43,7 +43,7 @@
     import { createRoot } from "react-dom/client";
     import htm from "htm";
     import {
-      Aurora, GradientText, PromptHero, StatCounter, WaitlistForm, Button, GradientText
+      Aurora, GradientText, StickyBanner, StatCounter, WaitlistForm
     } from "performative-ui";
 
     const html = htm.bind(createElement);   // now write <${Component}>…<//>
@@ -52,17 +52,18 @@
       return html`
         <${Aurora} style=${{ position: "fixed", inset: 0, zIndex: -1 }} />
 
+        <${StickyBanner}>
+          <${GradientText}>Series A oversubscribed 14×<//> — now onboarding design partners
+        <//>
+
         <main>
           <${GradientText} as="h1" style=${{ fontSize: "52px", lineHeight: 1.1 }}>
-            bizness mail. for the snAIl era.
+            The synergy layer for post-human workflows
           <//>
 
           <p style=${{ opacity: 0.7, fontSize: "18px", margin: "20px 0 40px" }}>
-            The least revenue-negative AI company in history. Now powering your mail.
+            Synergon turns ambient intent into actionable nothing. No model required.
           </p>
-
-          <${PromptHero} placeholder="Describe literally anything…"
-                         onSubmit=${(v) => alert("Disrupting: " + v)} />
 
           <div class="stats">
             <div><${StatCounter} target=${1284000} durationMs=${2000} /><small>vibes processed</small></div>
@@ -73,7 +74,6 @@
           <${WaitlistForm} placeholder="you@startup.ai"
                            ctaLabel="Request early access"
                            footnote="We will email you exactly once, dramatically." />
-
         </main>
       `;
     }
