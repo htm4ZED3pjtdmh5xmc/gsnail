@@ -43,7 +43,7 @@
     import { createRoot } from "react-dom/client";
     import htm from "htm";
     import {
-      Aurora, GradientText, PromptHero, StatCounter, WaitlistForm, Button
+      Aurora, GradientText, PromptHero, StatCounter, WaitlistForm, Button, GradientText
     } from "performative-ui";
 
     const html = htm.bind(createElement);   // now write <${Component}>…<//>
@@ -65,18 +65,15 @@
                          onSubmit=${(v) => alert("Disrupting: " + v)} />
 
           <div class="stats">
-            <div><${StatCounter} target=${0000006} durationMs=${3000} />M<small>neural routes</small></div>
-            <div>$<${StatCounter} target=${5} durationMs=${2000} /><small>reading agents</small></div>
-            <div><${StatCounter} target=${6.9} durationMs=${4000} />%<small>messages processed</small></div>
+            <div><${StatCounter} target=${1284000} durationMs=${2000} /><small>vibes processed</small></div>
+            <div>$<${StatCounter} target=${515} durationMs=${2000} />M<small>seed round (pre-product)</small></div>
+            <div><${StatCounter} target=${99.9} durationMs=${2000} />%<small>uptime (aspirational)</small></div>
           </div>
 
           <${WaitlistForm} placeholder="you@startup.ai"
                            ctaLabel="Request early access"
                            footnote="We will email you exactly once, dramatically." />
 
-          <div style=${{ marginTop: "32px" }}>
-            <${Button} variant="glow">Book a demo<//>
-          </div>
         </main>
       `;
     }
