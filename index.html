@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Synergon — AI-native synergy, reimagined</title>
+  <title>gnsail.biz -- reimagined, again</title>
 
   <!-- 1. The library's stylesheet. Without this, every component renders unstyled. -->
   <link rel="stylesheet"
@@ -50,33 +50,25 @@
 
     function App() {
       return html`
-        <${Aurora} style=${{ position: "fixed", inset: 0, zIndex: -1 }} />
-
         <main>
           <${GradientText} as="h1" style=${{ fontSize: "52px", lineHeight: 1.1 }}>
-            The synergy layer for post-human workflows
+            bizness mail.<br>
+    		 		for the snAIl era.
           <//>
 
           <p style=${{ opacity: 0.7, fontSize: "18px", margin: "20px 0 40px" }}>
-            Synergon turns ambient intent into actionable nothing. No model required.
+            The least revenue-negative AI company in history. Now, with mail.
           </p>
 
-          <${PromptHero} placeholder="Describe literally anything…"
-                         onSubmit=${(v) => alert("Disrupting: " + v)} />
-
           <div class="stats">
-            <div><${StatCounter} target=${1284000} durationMs=${2000} /><small>vibes processed</small></div>
-            <div>$<${StatCounter} target=${515} durationMs=${2000} />M<small>seed round (pre-product)</small></div>
-            <div><${StatCounter} target=${99.9} durationMs=${2000} />%<small>uptime (aspirational)</small></div>
+            <div><${StatCounter} target=${0000006} durationMs=${2000} /><small>routing rules</small></div>
+            <div>$<${StatCounter} target=${002} durationMs=${2000} />M<small>destination mailboxes</small></div>
+            <div><${StatCounter} target=${05.1} durationMs=${2000} />%<small>emails sent</small></div>
           </div>
 
-          <${WaitlistForm} placeholder="you@startup.ai"
+          <${WaitlistForm} placeholder="you@gsnail.biz"
                            ctaLabel="Request early access"
                            footnote="We will email you exactly once, dramatically." />
-
-          <div style=${{ marginTop: "32px" }}>
-            <${Button} variant="glow">Book a demo<//>
-          </div>
         </main>
       `;
     }
