@@ -1,24 +1,85 @@
-<html>
-	<body>
-		<br><br><br><br>
-		
-		<center>
-			<img src="Art.png">
-		</center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synergon — AI-native synergy, reimagined</title>
 
-		<h1 style=
-			"margin-top: 0px;
-			margin-bottom: 0px;
-			font-family: sans-serif;
-			font-size: 6rem;
-			text-align: center;
-			background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
-			-webkit-background-clip: text;
-		 	-webkit-text-fill-color: transparent;"">
+  <!-- 1. The library's stylesheet. Without this, every component renders unstyled. -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/performative-ui@0.6.0/dist/performative-ui.css" />
 
-		 		bizness mail.<br>
-		 		for the snail era.
+  <!-- 2. Import map: pins ONE React 19 instance. The library imports bare "react",
+          and ?external=react,react-dom makes it resolve through this map to the
+          same instance we render with. This is what prevents "invalid hook call". -->
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@19",
+      "react-dom": "https://esm.sh/react-dom@19",
+      "react-dom/client": "https://esm.sh/react-dom@19/client",
+      "htm": "https://esm.sh/htm@3",
+      "performative-ui": "https://esm.sh/performative-ui@0.6.0?external=react,react-dom"
+    }
+  }
+  </script>
 
-		</h1>
-	</body>
-</html
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #0a0a0f; color: #e8e8f0; }
+    main { max-width: 760px; margin: 0 auto; padding: 18vh 24px 24px; text-align: center; }
+    .stats { display: flex; gap: 40px; justify-content: center; margin: 48px 0; }
+    .stats > div { font-size: 28px; font-weight: 700; }
+    .stats small { display: block; font-size: 12px; font-weight: 400; opacity: 0.6; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- 3. The app. htm gives you JSX-like syntax with no compiler. -->
+  <script type="module">
+    import { createElement } from "react";
+    import { createRoot } from "react-dom/client";
+    import htm from "htm";
+    import {
+      Aurora, GradientText, PromptHero, StatCounter, WaitlistForm, Button
+    } from "performative-ui";
+
+    const html = htm.bind(createElement);   // now write <${Component}>…<//>
+
+    function App() {
+      return html`
+        <${Aurora} style=${{ position: "fixed", inset: 0, zIndex: -1 }} />
+
+        <main>
+          <${GradientText} as="h1" style=${{ fontSize: "52px", lineHeight: 1.1 }}>
+            The synergy layer for post-human workflows
+          <//>
+
+          <p style=${{ opacity: 0.7, fontSize: "18px", margin: "20px 0 40px" }}>
+            Synergon turns ambient intent into actionable nothing. No model required.
+          </p>
+
+          <${PromptHero} placeholder="Describe literally anything…"
+                         onSubmit=${(v) => alert("Disrupting: " + v)} />
+
+          <div class="stats">
+            <div><${StatCounter} target=${1284000} durationMs=${2000} /><small>vibes processed</small></div>
+            <div>$<${StatCounter} target=${515} durationMs=${2000} />M<small>seed round (pre-product)</small></div>
+            <div><${StatCounter} target=${99.9} durationMs=${2000} />%<small>uptime (aspirational)</small></div>
+          </div>
+
+          <${WaitlistForm} placeholder="you@startup.ai"
+                           ctaLabel="Request early access"
+                           footnote="We will email you exactly once, dramatically." />
+
+          <div style=${{ marginTop: "32px" }}>
+            <${Button} variant="glow">Book a demo<//>
+          </div>
+        </main>
+      `;
+    }
+
+    createRoot(document.getElementById("root")).render(html`<${App} />`);
+  </script>
+</body>
+</html>
