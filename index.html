@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Synergon — AI-native synergy, reimagined</title>
+  <title>gsnail —- email, reimagined, again</title>
 
   <!-- 1. The library's stylesheet. Without this, every component renders unstyled. -->
   <link rel="stylesheet"
@@ -54,22 +54,29 @@
 
         <main>
           <${GradientText} as="h1" style=${{ fontSize: "52px", lineHeight: 1.1 }}>
-            bizness mail.<br>		 		for the snAIl era.
+            The synergy layer for post-human workflows
           <//>
 
           <p style=${{ opacity: 0.7, fontSize: "18px", margin: "20px 0 40px" }}>
-            The lowest revenue-negative AI company in history. Now with email.
+            Synergon turns ambient intent into actionable nothing. No model required.
           </p>
 
+          <${PromptHero} placeholder="Describe literally anything…"
+                         onSubmit=${(v) => alert("Disrupting: " + v)} />
+
           <div class="stats">
-            <div><${StatCounter} target=${6} durationMs=${3000} /><small>neural routes</small></div>
-            <div>$<${StatCounter} target=${2} durationMs=${2000} />M<small>agents</small></div>
-            <div><${StatCounter} target=${6.9} durationMs=${4000} />%<small>emails served</small></div>
+            <div><${StatCounter} target=${1284000} durationMs=${2000} /><small>vibes processed</small></div>
+            <div>$<${StatCounter} target=${515} durationMs=${2000} />M<small>seed round (pre-product)</small></div>
+            <div><${StatCounter} target=${99.9} durationMs=${2000} />%<small>uptime (aspirational)</small></div>
           </div>
 
           <${WaitlistForm} placeholder="you@startup.ai"
                            ctaLabel="Request early access"
                            footnote="We will email you exactly once, dramatically." />
+
+          <div style=${{ marginTop: "32px" }}>
+            <${Button} variant="glow">Book a demo<//>
+          </div>
         </main>
       `;
     }
